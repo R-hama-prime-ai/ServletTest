@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import tool.Page;
+
 @WebServlet("/jsp/FormTest")
 public class FormTest extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -39,9 +41,7 @@ public class FormTest extends HttpServlet {
             return;
         }
 
-        out.println("<html>");
-        out.println("<head><title>確認画面</title></head>");
-        out.println("<body>");
+       Page.header(out);
         out.println("<h2>入力情報を確認してください</h2>");
         out.println("お名前: " + name + "<br>");
         out.println("会社名: " + company + "<br>");
@@ -53,7 +53,6 @@ public class FormTest extends HttpServlet {
                 out.println(melmaga + " ");
             }
         }
-        out.println("</body>");
-        out.println("</html>");
+        Page.footer(out);
     }
 }
